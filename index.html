@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List + JS Basic Concepts</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <section class="header">
+      <h1>Simple Todo List</h1>
+
+      <form>
+        <input type="text" class="todo-input" />
+        <button class="todo-btn" type="submit">
+          <i class="fas fa-plus-square"></i>
+        </button>
+        <div class="select">
+          <select name="todos" id="" class="filter-todo">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+          </select>
+        </div>
+      </form>
+      <div class="todo-container">
+        <ul class="todo-list"></ul>
+      </div>
+      <p>
+        Going through basic concepts of JS, events, event bubbling, scope,
+        localstorage, sessionstorage, DOM
+      </p>
+    </section>
+
+    <!-- OLD HTML
+    <div class="hero">
+      <h1>TODO LIST (NAIVE)</h1>
+      <div class="buttons">
+        <!-- <a href="#" id="btn-remove" class="btn">REMOVE LIST</a> 
+        <form action="">
+          <input type="text" class="entervalue" />
+          <a href="#" id="btn" type="submit" class="btn">ADD LIST</a>
+        </form>
+      </div>
+
+      <ul id="list"></ul>
+      <h2 class="todo-nr">Number of items: <b>None</b></h2>
+    </div>
+  -->
+    <script src="index.js"></script>
+    <script src="guessgame.js"></script>
+    <script src="DOM.js"></script>
+    <script src="events.js"></script>
+    <script src="localstorage.js"></script>
+    <script src="todolist.js"></script>
+  </body>
+</html>
