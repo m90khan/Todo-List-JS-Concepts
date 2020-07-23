@@ -4,7 +4,7 @@
 > Filter Options - (All,Completed,UnCompleted)
 > LocalStorage addition
 
-### > Skills Used:
+### Skills Used:
 
 - HTML5
 - CSS3
