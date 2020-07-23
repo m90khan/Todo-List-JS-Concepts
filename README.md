@@ -1,19 +1,20 @@
 # Simple Todo-List
 
 > A todolist to add and delete a task.
-> Filter Options - All,Completed,UnCompleted
+> Filter Options - (All,Completed,UnCompleted)
 > LocalStorage addition
 
-Skills
-| :---: |:---:| :---:|
+### > Skills Used:
 
-| - HTML5 | - CSS3 | -JavaScript |
+- HTML5
+- CSS3
+- JavaScript
 
 **TodoList Overview**
 
 Live: https://m90khan.github.io/Todo-List-JS-Concepts/
 
-![ChuckSum Overview GIF](https://github.com/m90khan/ChuckSum---Lorem-Ipsum-Generator/blob/master/img/chucksum.gif)
+![TodoList Overview GIF](https://github.com/m90khan/Todo-List-JS-Concepts/blob/master/img/todolist_gif.gif)
 
 ---
 
@@ -54,6 +55,24 @@ function addtodo() {
 ---
 
 <img src="./img/overview-todo.jpg">
+
+---
+
+---
+
+> JS Topics Revised:
+
+- DOM (HTML Collections vs NodeList)
+- Events (Event bubbling, Stop Default)
+- Loops (for of [Arrays], For in {objects}, do while, while, forEach, Switch)
+- LocalStorage (getItem, setItem, JSON.stringify, JSON.parse)
+- fizzbuzz, number guess etc
+
+---
+
+---
+
+<img src="./img/overview.jpg">
 
 ---
 
