@@ -9,7 +9,7 @@
 // let einput = document.querySelector(".entervalue");
 
 // Event listner : scroll, resizing, click etc
-// takes two parameters : 1st = event , 22nd =function
+// takes two parameters : 1st = event , 2nd =function
 // buttonAdd.addEventListener("click", addlist);
 // einput.addEventListener("keydown", enter);
 
@@ -30,6 +30,7 @@
 //   }
 // }
 // function deleteItem(e) {
+// e.stopPropagation();
 //   e.target.remove();
 // }
 
