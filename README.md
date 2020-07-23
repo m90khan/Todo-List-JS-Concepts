@@ -4,8 +4,9 @@
 > Filter Options - All,Completed,UnCompleted
 > LocalStorage addition
 
-| Skills  |
-| ------- |
+Skills
+| :---: |:---:| :---:|
+
 | - HTML5 | - CSS3 | -JavaScript |
 
 **TodoList Overview**
