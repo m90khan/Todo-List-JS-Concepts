@@ -1,56 +1,70 @@
-// const buttonRemove = document.querySelector("#btn-remove");
-// const itemNumber = document.querySelectorAll(".item");
+/*
+Topic: Events
+ - events are like notifications to notify code that something happened. 
+ - based on the trigger, an event will occour
+* click, resize, keypress, scroll etc
+- The eecution stack has to be empty for event to happen
+- All events reside in the message queue wait for action to happen. 
 
-// const buttonAdd = document.querySelector("#btn");
-// const todo = document.querySelector(".todo-nr b");
-// const list = document.querySelector("#list");
-// const items = list.children;
 
-// let einput = document.querySelector(".entervalue");
+* State Varibale tells the condition of teh system
 
-// Event listner : scroll, resizing, click etc
-// takes two parameters : 1st = event , 2nd =function
-// buttonAdd.addEventListener("click", addlist);
-// einput.addEventListener("keydown", enter);
+const buttonRemove = document.querySelector("#btn-remove");
+const itemNumber = document.querySelectorAll(".item");
 
-// function addlist() {
-//   const newitem = document.createElement("li");
+const buttonAdd = document.querySelector("#btn");
+const todo = document.querySelector(".todo-nr b");
+const list = document.querySelector("#list");
+const items = list.children;
 
-//   console.log(einput.value);
-//   if (einput.value.length != 0) {
-//     newitem.classList.add("item");
-//     newitem.innerText = `${items.length + 1}:  ${einput.value} `;
+let einput = document.querySelector(".entervalue");
 
-//     list.appendChild(newitem);
-//     einput.value = "";
-//     todo.innerText = items.length;
-//     newitem.addEventListener("click", deleteItem);
-//   } else {
-//     alert("Your Task is empty. Please enter what you want to do today");
-//   }
-// }
-// function deleteItem(e) {
-// e.stopPropagation();
-//   e.target.remove();
-// }
+Event listner : scroll, resizing, click etc
+takes two parameters : 1st = event , 2nd =function
+buttonAdd.addEventListener("click", addlist);
+einput.addEventListener("keydown", enter);
 
-// function enter(event) {
-//   if (event.keyCode === 13) {
-//     addlist();
-//   }
-// }
+function addlist() {
+  const newitem = document.createElement("li");
 
-// buttonRemove.addEventListener("click", function () {
-//   document.title = "No";
-//   removelist();
-//   todo.innerText = items.length;
-// });
-//event listener to deleter ites in a sequence
-// function removelist() {
-//   const remitem = document.querySelector(".item");
-//   if (remitem == null) {
-//     console.log("list is empty");
-//   } else {
-//     list.removeChild(remitem);
-//   }
-// }
+  console.log(einput.value);
+  if (einput.value.length != 0) {
+    newitem.classList.add("item");
+    newitem.innerText = `${items.length + 1}:  ${einput.value} `;
+
+    list.appendChild(newitem);
+    einput.value = "";
+    todo.innerText = items.length;
+    newitem.addEventListener("click", deleteItem);
+  } else {
+    alert("Your Task is empty. Please enter what you want to do today");
+  }
+}
+function deleteItem(e) {
+e.stopPropagation();
+  e.target.remove();
+}
+
+function enter(event) {
+  if (event.keyCode === 13) {
+    addlist();
+  }
+}
+
+buttonRemove.addEventListener("click", function () {
+  document.title = "No";
+  removelist();
+  todo.innerText = items.length;
+});
+event listener to deleter ites in a sequence
+function removelist() {
+  const remitem = document.querySelector(".item");
+  if (remitem == null) {
+    console.log("list is empty");
+  } else {
+    list.removeChild(remitem);
+  }
+}
+
+
+*/

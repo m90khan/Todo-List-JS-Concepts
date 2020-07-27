@@ -9,9 +9,7 @@ html {
   font-size: 62.5%;
 }
 body {
-  background: linear-gradient(105deg, rgb(250, 102, 86), rgb(247, 104, 135));
   width: 100%;
-  min-height: 100vh;
   font-family: "poppins", sans-serif;
   color: aliceblue;
 }
@@ -29,13 +27,22 @@ h1 {
   height: 10vh;
   margin-bottom: 2rem;
 }
-.header {
+.header,
+.header-game {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  padding: 2rem;
-  margin: 8rem auto;
+  padding: 8rem;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+.header {
+  background: linear-gradient(105deg, rgb(250, 102, 86), rgb(247, 104, 135));
+}
+
+.header-game {
+  background: linear-gradient(105deg, rgb(86, 143, 250), rgb(248, 203, 55));
 }
 /* .btn,
 .btn-remove {
