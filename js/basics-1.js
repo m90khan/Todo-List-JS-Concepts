@@ -32,11 +32,17 @@ console.log($firstName);
 
 
 * 1: String (Data Structure)
-var city1 = 'Munich';
-var city2 = 'Gujranwala';
-var city3 = 'Saarbrucken';
-var favCities = city1 + ', ' + city2 + ', ' + city3
+let city1 = 'Munich';
+const city2 = 'Gujranwala';
+const city3 = 'Saarbrucken';
+const  favCities = city1 + ', ' + city2 + ', ' + city3
 console.log(favCities);   // Output : Munich, Gujranwala, Saarbrucken
+- Another way to write this is usin template literals
+`${city1}, ${city2}, ${city3} `
+- There are also variosu methods for string
+const name = 'Gujranwala';
+* name.startswidth('G'); name.endswith('a') ; name.includes('wala')
+
 
 * JS has dynamic typing means that data type are automatically assigned
 * automatically figure the data type and assign. which is called Type coersion. 
@@ -45,6 +51,10 @@ console.log(favCities);   // Output : Munich, Gujranwala, Saarbrucken
 -(such as string to number, object to boolean, and so on). Any type, be it 
 -primitive or an object, is a valid subject for type coercion. To recall, 
 -primitives are: number, string, boolean, null, undefined + Symbol (added in ES6)
+
+
+
+
 
 * 2: Number (Data Structure)  
 * Basic Operators 
@@ -235,7 +245,9 @@ Topic: Functions
 - function whatDoYouDo(job, firstName) {}
 - return a certain computer value as output and immediaely stop the function
 
-- declaring a function using name
+
+
+* declaring a function using name
 
 function yearsUntilRetirement(year, firstName) {
     const age = calculateAge(year);
