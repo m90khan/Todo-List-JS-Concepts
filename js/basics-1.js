@@ -72,6 +72,9 @@ const name = 'Gujranwala';
 * Operator Order Precedence: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
 
 - Unary Operator: the one that only has one side. ++ or --
+* ParseInt: convert string into a number '24' => 24  '28kills' => 28  '$90' => NaN
+* ParseFloat: convert to floating point
+
  Output : 14
  let x = 5;
  let y = (x + 2) *2;
@@ -323,7 +326,12 @@ Topic Non-Primitive Data Type aka Compund data type
 ------------------------------------------------------------------------------------
 
 Topic :  Arrays
-- Collection of differnt or same type of data into a single variable  
+- Collection of different or same type of data into a single variable. data is indexed
+* Array also have methods : concat, includes(T/F), indexOf, join, reverse, slice, splice, sort
+- splice => remove/replace elements. array.splice(start, howManyToDelete, [Insert Anything])
+- names.splice(1,0, 'kevin')  => ['John','kevin', 'Mark', 'Jane'];
+-indexOf : return the index of argument that we pass in the array
+
  const names = ['John', 'Mark', 'Jane'];
 const years = new Array(1990, 1969, 1948);
 
@@ -332,11 +340,12 @@ console.log(names.length);
 
 - Mutate array data
 names[1] = 'Ben';
-names[names.length] = 'Mary';
+- besides push , names.length also add item to the end of the array
+names[names.length] = 'Mary'; 
 console.log(names);
 
 - Different data types
-const john = ['John', 'Smith', 1990, 'designer', false];
+const john = ['John', 'Smith', 1990, 'designer', false]; 
 
 john.push('blue');
 john.unshift('Mr.');
@@ -348,7 +357,6 @@ john.shift();
 console.log(john);
 
 console.log(john.indexOf(23));
--indexOf : return the index of argument that we pass in the array
 const isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John IS a designer';
 console.log(isDesigner);
 
@@ -391,7 +399,8 @@ console.log(tips, finalValues);
 ------------------------------------------------------------------------------------
 
 Topic:  Object  (Data Type)
-* Contains a key:value combinations
+* collection of properties. and properties are a key:value combinations
+- use custom keys to access data rather than index
 
 var john = {
     firstName: 'John',
@@ -402,6 +411,7 @@ var john = {
     isMarried: false
 };
 
+*accessing a property either using dot notation or [] square brackets john[firstName]
 console.log(john.firstName);
 console.log(john['lastName']);
 var x = 'birthYear';
@@ -462,9 +472,104 @@ if (john.calcBMI() > mark.calcBMI()) {
 }
 ------------------------------------------------------------------------------------
  Topic: Loops
+
 - For 
-- for of => arrays  | For in => object
+- While
+- for of => arrays  
+- For in => object
 - FOrEach
+
+* For Loop : when we know the repition for ur code usin conditionals
+- for(initial expression; condition ; increment expression)  i++ i+=2
+
+* Infinite loop: when condition does not meet at all. result in inifnite loop
+for (let i = 1; i !== 20; i += 2) {
+	console.log(i);
+}
+
+- THE ABOVE LOOP NEVER ENDS
+- i starts at 1, and we add 2 each time
+- 1,3,5,7,9,11,13,15,17,19,21,etc.
+- i never hits 20, so the loop condition is always true
+
+- Instead, write it this way:
+for (let i = 1; i <= 20; i += 2) {
+	console.log(i);
+}
+-   EXAMPLE 3  
+- Averaging all grades in myStudents array
+let total = 0; //total will hold the sum of all grades
+
+for (let i = 0; i < myStudents.length; i++) {
+	let student = myStudents[i];
+	total += student.grade; //add each grade to total
+}
+console.log(total / myStudents.length); //divide by number of students
+
+-   EXAMPLE 4  
+- Reversing a string
+const word = 'stressed';
+
+let reversedWord = ''; //will hold reversed string
+
+- Loop backwards over the string
+ 
+const word = "stressed";
+
+let reversedWord = ""; //will hold reversed string
+for (let i = word.length - 1; i >= 0; i--) {
+  reversedWord += word[i]; //add each char to reversedWord
+}
+
+console.log(reversedWord);
+
+* Nexted Loops
+for (let i = 1; i <= 10; i++) {
+	console.log('OUTER LOOP:', i);
+	for (let j = 10; j >= 0; j -= 2) {
+		console.log('  INNER LOOP', j);
+	}
+}
+
+- Sum all elements in our 2048 board
+const gameBoard = [
+	[ 4, 32, 8, 4 ],
+	[ 64, 8, 32, 2 ],
+	[ 8, 32, 16, 4 ],
+	[ 2, 8, 4, 2 ]
+];
+
+let totalScore = 0;
+//outer loop iterates through the rows
+for (let i = 0; i < gameBoard.length; i++) {
+	let row = gameBoard[i];
+	//inner loop iterates over each cell in a given row
+	for (let j = 0; j < row.length; j++) {
+		totalScore += row[j];
+	}
+}
+
+* While loop
+run the code while a certain condition is true
+
+- Pick a target number we are trying to guess
+const target = Math.floor(Math.random() * 10);
+- Make initial guess
+let guess = Math.floor(Math.random() * 10);
+
+- Continue looping while guess is not the target num
+while (guess !== target) {
+	console.log(`Target: ${target} Guess: ${guess}`);
+	// IMPORTANT!!
+	- Update the value of guess each time through the loop
+	guess = Math.floor(Math.random() * 10);
+}
+console.log(`Target: ${target} Guess: ${guess}`);
+console.log(`CONGRATS YOU WIN!!`);
+
+
+* for in = inside (index number) for of = give values
+
 
 const user = {
   name: "khan",
@@ -473,24 +578,107 @@ const user = {
 for (let x in user) {
   console.log(user[x]);
 }
-
+*for of
 const names = ["khan", "billy"];
-* for in = inside (index number) for of = give values
 for (let name of names) {
   console.log(names.indexOf(name));
 }
+
+let subreddits = [ 'soccer', 'popheads', 'cringe', 'books' ];
+-  With a standard for loop
+for (let i = 0; i < subreddits.length; i++) {
+	console.log(subreddits[i]);
+}
+- Much cleaner  with a for...of loop!
+for (let sub of subreddits) {
+	console.log(sub);
+}
+- Works with other iterables, like strings!
+for (let char of 'cockadoodledoo') {
+	console.log(char.toUpperCase());
+}
+* For loop vs For Of
+- Whenever we need index related work, for loop is the way to go
+const magicSquare = [ [ 2, 7, 6 ], [ 9, 5, 1 ], [ 4, 3, 8 ] ];
+
+-Version using a for loop...
+for (let i = 0; i < magicSquare.length; i++) {
+	let row = magicSquare[i];
+	let sum = 0;
+	for (let j = 0; j < row.length; j++) {
+		sum += row[j];
+	}
+	console.log(`${row} summed to ${sum}`);
+}
+
+- Much cleaner version using a for...of
+for (let row of magicSquare) {
+	let sum = 0;
+	for (let num of row) {
+		sum += num;
+	}
+	console.log(`${row} summed to ${sum}`);
+}
+
+- EXAMPLE 
+- If you need the indices, use a traditional for loop!
+const words1 = [ 'mail', 'milk', 'bath', 'black' ];
+const words2 = [ 'box', 'shake', 'tub', 'berry' ];
+
+for (let i = 0; i < words1.length; i++) {
+	- Access index i of both arrays
+	console.log(`${words1[i]}${words2[i]}`);
+}
+
+* For Of  loop on Objects 
+- we cannot loop over the entire object . only loop through keys or values
+* Object.keys  ... Object.values
+const movieReviews = {
+	Arrival                : 9.5,
+	Alien                  : 9,
+	Amelie                 : 8,
+	'In Bruges'            : 9,
+	Amadeus                : 10,
+	'Kill Bill'            : 8,
+	'Little Miss Sunshine' : 8.5,
+	Coraline               : 7.5
+};
+
+-  THIS DOES NOT WORK!
+-  OBJECTS ARE NOT ITERABLE (can't use a for...of loop)
+for (let x of movieReviews) {
+	console.log(x);
+}
+
+- We CAN iterate over the keys of an object
+for (let movie of Object.keys(movieReviews)) {
+	console.log(`You rated ${movie} - ${movieReviews[movie]}`);
+}
+
+- We can also iterate over the values
+- To calculate the average movie rating:
+const ratings = Object.values(movieReviews);
+let total = 0;
+for (let r of ratings) {
+	total += r;
+}
+let avg = total / ratings.length;
+console.log('Average Rating: ', avg);
+
+* For in Loop : loop over the keys in an object
+ const user = {
+  name: "khan",
+  age: "20",
+};
+for (let x in user) {
+  console.log(user[x]);
+}
+ 
 *forEach
 names.forEach(function (name, index) {
   console.log(name, index);
 });
 
-const user = {
-  name: "khan",
-  age: "20",
-};
-for (let x in user) {
-  console.log(user[x]);
-}
 
 ! fizzBuzz : For Loop
 
