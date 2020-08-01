@@ -37,7 +37,8 @@ const $firstName = "kan";
 console.log($firstName);
 
 
-* 1: String (Data Structure)
+* 1: String (Data Structure) 
+- strings are immutable
 let city1 = 'Munich';
 const city2 = 'Gujranwala';
 const city3 = 'Saarbrucken';
