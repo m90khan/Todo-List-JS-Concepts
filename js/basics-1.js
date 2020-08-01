@@ -14,7 +14,9 @@ Topic: JavaScript Basics 101   -   Part 1
 Topic: Variables 
 * Variable is a placeholder for data which acts more like a pointer to the memory location
 * var, let and const
-* Variable mutation is when we change the value of teh variable once assigned
+* Variable mutation is when we change the value of the variable once assigned
+- Var : before es6, Var was only the way to declare variables.
+
 ------------------------------------------------------------------------------------
 Topic: Data Structures
 
@@ -25,6 +27,10 @@ Topic: Data Structures
 - Boolean  : logical True / False
 - Null  :  variable that has a value of nothing (absence of a value)
 - Undefined : data type of a variable that does not have a value yet
+  
+*NaN : NaN is a numeric value that represents something that is not...a number
+ - If you divide 0/0 , 1+NaN => any value that the js engine does not comprehend as number
+- results as NaN 
 
 ! variables cannot start wit a number or special characters or js syntax names expect $
 const $firstName = "kan";
@@ -64,6 +70,7 @@ const name = 'Gujranwala';
 * Some operators work from RTL and some LTR
 * Operator Order Precedence: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
 
+- Unary Operator: the one that only has one side. ++ or --
  Output : 14
  let x = 5;
  let y = (x + 2) *2;
