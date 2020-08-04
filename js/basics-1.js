@@ -6,18 +6,19 @@ Topic: JavaScript Basics 101   -   Part 1
 * HTML     | CSS         | JS
 * Nouns   | Adjective   | Verb
 * <p></p> | color: red | p.remove()
-------------------------------------------------------------------------------------
  */
 
 /* 
-------------------------------------------------------------------------------------
+* ***********************************************************************
+
 Topic: Variables 
 * Variable is a placeholder for data which acts more like a pointer to the memory location
 * var, let and const
 * Variable mutation is when we change the value of the variable once assigned
 - Var : before es6, Var was only the way to declare variables.
 
-------------------------------------------------------------------------------------
+* ***********************************************************************
+ 
 Topic: Data Structures
 
 
@@ -60,6 +61,7 @@ const name = 'Gujranwala';
 -primitives are: number, string, boolean, null, undefined + Symbol (added in ES6)
 
 
+------------------------------------------------------------------------------------
 
 
 
@@ -109,6 +111,8 @@ console.log(kelvin); //Output :if fahrenheit = 0 then celcius -17.77 kelvin = 25
 *Javascript like other languages also have a control structure when , if else and how code would run
 - if Else : to control the flow / if (condition if true){ //run the code } else { // do this}
 
+------------------------------------------------------------------------------------
+
 
 * 3: Boolean (Data Structure)
 - Basic Boolean Logic : AND && , OR || , NOT !
@@ -147,6 +151,8 @@ console.log('your are a adult: enter');
  
 * Leaked global: when a variable is assign to a value but never defined so its always best practice to declare the variable
 
+------------------------------------------------------------------------------------
+
 * Ternary Operator 
 - write if else statement all in one line if(condition is true) ? do this : else do this;
 
@@ -162,6 +168,8 @@ let firstName = 'John';
 let age = 14;
 age >= 18 ? console.log(firstName + ' drinks beer.') : console.log(firstName + ' drinks juice.');
 let drink = age >= 18 ? 'beer' : 'juice'; console.log(drink);
+
+------------------------------------------------------------------------------------
 
 * Switch Statements
 - more like a HUGE if else staement 
@@ -198,6 +206,8 @@ switch (true) {
     default:
         console.log(firstName + ' is a man.');
 }
+
+------------------------------------------------------------------------------------
 
 * Truthy and Falsy values and equality operators
 - falsy values: values that return durin if else conditions.  false. undefined, null, 0, '', NaN
@@ -250,72 +260,12 @@ if (johnAvg > markAvg && johnAvg > maryAvg) {
 
 ------------------------------------------------------------------------------------
 
-Topic: Functions 
-* sets of statements combined together to form a functionality inside a block
--  Function declaration
-- function whatDoYouDo(job, firstName) {}
-- return a certain computer value as output and immediaely stop the function
-
-
-
-* declaring a function using name
-
-function yearsUntilRetirement(year, firstName) {
-    const age = calculateAge(year);
-    const retirement = 65 - age;
-    
-    if (retirement > 0) {
-        console.log(firstName + ' retires in ' + retirement + ' years.');
-    } else {
-        console.log(firstName + ' is already retired.')
-    }
-    
-}
-
-yearsUntilRetirement(1990, 'John');
-yearsUntilRetirement(1948, 'Mike');
-yearsUntilRetirement(1969, 'Jane');
-
-* Function Statements and Expressions
-* Function expression : Assigning a function to a variable
-- fn expression: function of code that always produces a value
-*fn statements: thins that perform actions but do not return a value like 
-- (ifesle, loops or even function declartaion)
-
-const  whatDoYouDo = function(job, firstName) {
-    switch(job) {
-        case 'teacher':
-- return not only return the value but also stop it
-            return firstName + ' teaches kids how to code';
-        case 'driver':
-            return firstName + ' drives a cab in Lisbon.'
-        case 'designer':
-            return firstName + ' designs beautiful websites';
-        default:
-            return firstName + ' does something else';
-    }
-}
-
-console.log(whatDoYouDo('teacher', 'John'));
-console.log(whatDoYouDo('designer', 'Jane'));
-console.log(whatDoYouDo('retired', 'Mark'));
-
-!Problem: Tip calculator /  given total
-let totalAmount = prompt('enter total bill');
-let tip = prompt('enter percentage value of tip');
-let tipCalculator = function (total , tipPercentage = 0.2){
-return total * tipPercentage ;
-}
-let result = tipCalculator(totalAmount, tip);
-console.log(result);
-------------------------------------------------------------------------------------
-
 
 */
 
 /*
-//**********************************************************************************
-------------------------------------------------------------------------------------
+* *********************************************************************************
+ 
 
 Topic Non-Primitive Data Type aka Compund data type
 * Everything else is an object.
@@ -323,7 +273,10 @@ Topic Non-Primitive Data Type aka Compund data type
 - Functons
 - Objects
 - Dates etc
-------------------------------------------------------------------------------------
+
+* *********************************************************************************
+
+
 
 Topic :  Arrays
 - Collection of different or same type of data into a single variable. data is indexed
@@ -396,7 +349,8 @@ const finalValues = [bills[0] + tips[0],
 
 console.log(tips, finalValues);
 
-------------------------------------------------------------------------------------
+* *********************************************************************************
+
 
 Topic:  Object  (Data Type)
 * collection of properties. and properties are a key:value combinations
@@ -470,7 +424,8 @@ if (john.calcBMI() > mark.calcBMI()) {
 } else {
     console.log('They have the same BMI');
 }
-------------------------------------------------------------------------------------
+* *********************************************************************************
+
  Topic: Loops
 
 - For 
@@ -478,7 +433,7 @@ if (john.calcBMI() > mark.calcBMI()) {
 - for of => arrays  
 - For in => object
 - FOrEach
-
+------------------------------------------------------------------------------------
 * For Loop : when we know the repition for ur code usin conditionals
 - for(initial expression; condition ; increment expression)  i++ i+=2
 
@@ -548,7 +503,7 @@ for (let i = 0; i < gameBoard.length; i++) {
 		totalScore += row[j];
 	}
 }
-
+------------------------------------------------------------------------------------
 * While loop
 run the code while a certain condition is true
 
@@ -566,7 +521,7 @@ while (guess !== target) {
 }
 console.log(`Target: ${target} Guess: ${guess}`);
 console.log(`CONGRATS YOU WIN!!`);
-
+------------------------------------------------------------------------------------
 
 * for in = inside (index number) for of = give values
 
@@ -578,6 +533,9 @@ const user = {
 for (let x in user) {
   console.log(user[x]);
 }
+
+------------------------------------------------------------------------------------
+
 *for of
 const names = ["khan", "billy"];
 for (let name of names) {
@@ -597,6 +555,9 @@ for (let sub of subreddits) {
 for (let char of 'cockadoodledoo') {
 	console.log(char.toUpperCase());
 }
+
+------------------------------------------------------------------------------------
+
 * For loop vs For Of
 - Whenever we need index related work, for loop is the way to go
 const magicSquare = [ [ 2, 7, 6 ], [ 9, 5, 1 ], [ 4, 3, 8 ] ];
@@ -629,7 +590,7 @@ for (let i = 0; i < words1.length; i++) {
 	- Access index i of both arrays
 	console.log(`${words1[i]}${words2[i]}`);
 }
-
+------------------------------------------------------------------------------------
 * For Of  loop on Objects 
 - we cannot loop over the entire object . only loop through keys or values
 * Object.keys  ... Object.values
@@ -664,7 +625,7 @@ for (let r of ratings) {
 }
 let avg = total / ratings.length;
 console.log('Average Rating: ', avg);
-
+------------------------------------------------------------------------------------
 * For in Loop : loop over the keys in an object
  const user = {
   name: "khan",
@@ -673,7 +634,8 @@ console.log('Average Rating: ', avg);
 for (let x in user) {
   console.log(user[x]);
 }
- 
+
+------------------------------------------------------------------------------------
 *forEach
 names.forEach(function (name, index) {
   console.log(name, index);
