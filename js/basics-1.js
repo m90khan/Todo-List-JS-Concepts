@@ -55,6 +55,10 @@ const name = 'Gujranwala';
 * JS has dynamic typing means that data type are automatically assigned
 * automatically figure the data type and assign. which is called Type coersion. 
 * Two Types of coersion: implicit & explicit
+
+* Implicit 
+* Explicit
+
 -Type coercion is the process of converting value from one type to another 
 -(such as string to number, object to boolean, and so on). Any type, be it 
 -primitive or an object, is a valid subject for type coercion. To recall, 
@@ -82,7 +86,9 @@ const name = 'Gujranwala';
  let y = (x + 2) *2;
 console.log(y);
 
-- The match() method searches a string for a match against a regular expression, and returns the matches, as an Array object.
+- The match() method searches a string for a match against a regular expression,
+- and returns the matches, as an Array object.
+
 function getVowels(str) {
   const m = str.match(/[sk]/gi);
   if (m === null) {
@@ -149,7 +155,8 @@ console.log('your are a adult: enter');
   console.log('your are too old : enter');
 }
  
-* Leaked global: when a variable is assign to a value but never defined so its always best practice to declare the variable
+* Leaked global: when a variable is assign to a value but never defined so its always best practice
+- to declare the variable
 
 ------------------------------------------------------------------------------------
 
