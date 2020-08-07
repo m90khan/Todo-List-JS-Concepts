@@ -1,4 +1,3 @@
-/*
 //Selectors
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-btn");
@@ -47,7 +46,8 @@ function addtodo() {
 //delete list
 function deletecheck(e) {
   const item = e.target;
-  if (item.classList[0] === "delete-btn") {
+  console.log(item);
+  if (item.classList.contains("delete-btn")) {
     const parentItem = item.parentElement;
     //Animation
     parentItem.classList.add("fall");
@@ -66,6 +66,7 @@ function deletecheck(e) {
 // filter the tasks
 function filterOption(e) {
   const todos = todoList.childNodes;
+  console.log(todos);
   todos.forEach(function (todo) {
     switch (e.target.value) {
       case "all":
@@ -150,6 +151,3 @@ function getTodos() {
     todoList.appendChild(todoDiv);
   });
 }
-
-
-*/
