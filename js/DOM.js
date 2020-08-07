@@ -3,7 +3,6 @@ Topic: DOM
 - structured representation of an html document
 - is used to connect webpages to js scripts
 - every html box has an object in the DOM that we can access and interact
-
 - Docment object is the entry point of the DOm. it contains all the contents on a page
 
 -------------------------------------------------------------------------

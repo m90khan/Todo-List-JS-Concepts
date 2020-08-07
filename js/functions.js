@@ -89,19 +89,7 @@ function containsPurple(arr) {
 	}
 	return false;
 }
-! Problem
-- Write a isValidPassword function
-It accepts 2 arguments: password and username
-Password must:
-- be at least 8 characters
- - cannot contain spaces
- - cannot contain the username
-If all requirements are met, return true.
-Otherwise: false
 
-isValidPassword('89Fjj1nms', 'dogLuvr');  //true
-isValidPassword('dogLuvr123!', 'dogLuvr') //false
-isValidPassword('hello1', 'dogLuvr') //false
 
 * Function Statements and Expressions
 * Function expression : Assigning a function to a variable
@@ -135,8 +123,20 @@ return total * tipPercentage ;
 }
 let result = tipCalculator(totalAmount, tip);
 console.log(result);
+! Problem
+- Write a isValidPassword function
+It accepts 2 arguments: password and username
+Password must:
+- be at least 8 characters
+ - cannot contain spaces
+ - cannot contain the username
+If all requirements are met, return true.
+Otherwise: false
 
-
+isValidPassword('89Fjj1nms', 'dogLuvr');  //true
+isValidPassword('dogLuvr123!', 'dogLuvr') //false
+isValidPassword('hello1', 'dogLuvr') //false
+* Password cecker
 function isValidPassword(password, username) {
 	if (password.length < 8) {
 		return false;
@@ -439,5 +439,19 @@ var hoot = function () {
 }
 
 
+! Fibonacci using recursion
+
+let fibonacci = function (n) {
+  if (n === 1) {
+    return [0, 1];
+  } else {
+    let f = fibonacci(n - 1);
+    console.log(f);
+    f.push(f[f.length - 1] + f[f.length - 2]);
+    return f;
+  }
+};
+
+console.log(fibonacci(10));
 
 */

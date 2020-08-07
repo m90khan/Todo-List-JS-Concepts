@@ -332,7 +332,8 @@ In the end, John would like to have 2 arrays:
 2) Containing all three final paid amounts (bill + tip).
 
 (NOTE: To calculate 20% of a value, simply multiply it with 20/100 = 0.2)
- 
+
+- Solution 1
 function tipCalculator(bill) {
     let percentage;
     if (bill < 50) {
@@ -355,6 +356,28 @@ const finalValues = [bills[0] + tips[0],
                    bills[2] + tips[2]];
 
 console.log(tips, finalValues);
+
+
+- Solution 2
+const bills = [124, 48, 268];
+let percentage;
+let totalBill = [];
+let tips = [];
+bills.forEach((bill) => {
+  if (bill < 50) {
+    percentage = 0.2;
+  } else if (bill >= 50 && bill <= 200) {
+    percentage = 0.15;
+  } else {
+    percentage = 0.1;
+  }
+  const tip = percentage * bill;
+  const finalAmount = percentage + bill;
+  tips.push(tip);
+  totalBill.push(finalAmount);
+});
+
+console.log(tips, totalBill);
 
 * *********************************************************************************
 
@@ -394,7 +417,8 @@ console.log(jane);
 - Function inside a object is called method
  
 ! Problem
-Let's remember the first coding challenge where Mark and John compared their BMIs. Let's now implement the same functionality with objects and methods.
+- Let's remember the first coding challenge where Mark and John compared their BMIs. 
+- Let's now implement the same functionality with objects and methods.
 1. For each of them, create an object with properties for their full name, mass, and height
 2. Then, add a method to each object to calculate the BMI. Save the BMI to the object and also return it from the method.
 3. In the end, log to the console who has the highest BMI, together with the full name and the respective BMI. Don't forget they might have the same BMI.
@@ -441,10 +465,10 @@ if (john.calcBMI() > mark.calcBMI()) {
 - For in => object
 - FOrEach
 ------------------------------------------------------------------------------------
-* For Loop : when we know the repition for ur code usin conditionals
+* For Loop : when we know the repetition for ur code using conditionals
 - for(initial expression; condition ; increment expression)  i++ i+=2
 
-* Infinite loop: when condition does not meet at all. result in inifnite loop
+* Infinite loop: when condition does not meet at all. result in an infinite loop
 for (let i = 1; i !== 20; i += 2) {
 	console.log(i);
 }
@@ -669,7 +693,8 @@ console.log(fizzBuzz);
 ! Problem
 Remember the tip calculator challenge? Let's create a more advanced version using everything we learned!
 
-This time, John and his family went to 5 different restaurants. The bills were $124, $48, $268, $180 and $42.
+This time, John and his family went to 5 different restaurants. 
+The bills were $124, $48, $268, $180 and $42.
 John likes to tip 20% of the bill when the bill is less than $50, 15% when the bill is between $50 and $200, 
 and 10% if the bill is more than $200.
 
@@ -677,14 +702,19 @@ Implement a tip calculator using objects and loops:
 1. Create an object with an array for the bill values
 2. Add a method to calculate the tip
 3. This method should include a loop to iterate over all the paid bills and do the tip calculations
-4. As an output, create 1) a new array containing all tips, and 2) an array containing final paid amounts (bill + tip). HINT: Start with two empty arrays [] as properties and then fill them up in the loop.
+4. As an output, create 1) a new array containing all tips, and 2) an array containing final paid amounts (bill + tip). 
+HINT: Start with two empty arrays [] as properties and then fill them up in the loop.
 
 
-EXTRA AFTER FINISHING: Mark's family also went on a holiday, going to 4 different restaurants. The bills were $77, $375, $110, and $45.
-Mark likes to tip 20% of the bill when the bill is less than $100, 10% when the bill is between $100 and $300, and 25% if the bill is more than $300 (different than John).
+EXTRA AFTER FINISHING: Mark's family also went on a holiday, going to 4 different restaurants.
+The bills were $77, $375, $110, and $45.
+Mark likes to tip 20% of the bill when the bill is less than $100, 10% when the bill is between $100 and $300,
+ and 25% if the bill is more than $300 (different than John).
 
 5. Implement the same functionality as before, this time using Mark's tipping rules
-6. Create a function (not a method) to calculate the average of a given array of tips. HINT: Loop over the array, and in each iteration store the current sum in a variable (starting from 0). After you have the sum of the array, divide it by the number of elements in it (that's how you calculate the average)
+6. Create a function (not a method) to calculate the average of a given array of tips. HINT: Loop over the array, 
+and in each iteration store the current sum in a variable (starting from 0). After you have the sum of the array,
+divide it by the number of elements in it (that's how you calculate the average)
 7. Calculate the average tip for each family
 8. Log to the console which family paid the highest tips on average
 
