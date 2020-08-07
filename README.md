@@ -64,9 +64,9 @@ function addtodo() {
 
 - DOM (HTML Collections vs NodeList)
 - Events (Event bubbling, Stop Default)
-- Loops (for of [Arrays], For in {objects}, do while, while, forEach, Switch)
+- Loops (for of [Arrays], For in {objects}, do while, while, forEach)
 - LocalStorage (getItem, setItem, JSON.stringify, JSON.parse)
-- fizzbuzz, number guess etc
+- fizzbuzz, fibonacci, number guess, cardGenerator, tipCalulator etc
 
 ---
 
