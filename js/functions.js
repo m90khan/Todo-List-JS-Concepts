@@ -94,7 +94,7 @@ function containsPurple(arr) {
 * Function Statements and Expressions
 * Function expression : Assigning a function to a variable
 - fn expression: function of code that always produces a value
-*fn statements: thins that perform actions but do not return a value like 
+*fn statements: things that perform actions but do not return a value like 
 - (ifesle, loops or even function declartaion)
 
 const  whatDoYouDo = function(job, firstName) {

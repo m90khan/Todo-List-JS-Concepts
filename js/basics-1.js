@@ -131,6 +131,8 @@ console.log(kelvin); //Output :if fahrenheit = 0 then celcius -17.77 kelvin = 25
 - Equality operators
 - === strict equality : check equality + value type ,  !== Non-equalty : value not true
 
+- Number.isNaN : The Number.isNaN function is a standard JavaScript function 
+- that returns true only if the argument it is given is NaN
 
 
 ! Problem: to calculate is adult or not based on input value
@@ -274,7 +276,7 @@ if (johnAvg > markAvg && johnAvg > maryAvg) {
 * *********************************************************************************
  
 
-Topic Non-Primitive Data Type aka Compund data type
+Topic Non-Primitive Data Type aka Compound data types
 * Everything else is an object.
 - Arrays
 - Functons

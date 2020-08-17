@@ -18,6 +18,8 @@ Topic: Events
 -screenresize
 
 
+*AddEventListener * RemoveEventListner
+
 -------------------------------------------------------------------------
 * find the height and width of the screen
 window.screen to get the function on screen
@@ -58,7 +60,7 @@ for (let color of colors) {
 }
 
 -------------------------------------------------------------------------
-* State Varibale tells the condition of teh system
+* State Varibale tells the condition of the system
 
 const buttonRemove = document.querySelector("#btn-remove");
 const itemNumber = document.querySelectorAll(".item");
