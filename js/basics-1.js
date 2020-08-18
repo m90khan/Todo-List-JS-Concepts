@@ -61,7 +61,9 @@ const name = 'Gujranwala';
 
 -Type coercion is the process of converting value from one type to another 
 -(such as string to number, object to boolean, and so on). Any type, be it 
--primitive or an object, is a valid subject for type coercion. To recall, 
+-primitive or an object, is a valid subject for type coercion.
+
+*To recall, 
 -primitives are: number, string, boolean, null, undefined + Symbol (added in ES6)
 
 
