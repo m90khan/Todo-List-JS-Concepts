@@ -28,7 +28,7 @@ Topic: Data Structures
 - Boolean  : logical True / False
 - Null  :  variable that has a value of nothing (absence of a value)
 - Undefined : data type of a variable that does not have a value yet
-  
+- Symbol() : 
 *NaN : NaN is a numeric value that represents something that is not...a number
  - If you divide 0/0 , 1+NaN => any value that the js engine does not comprehend as number
 - results as NaN 
@@ -45,12 +45,19 @@ const city2 = 'Gujranwala';
 const city3 = 'Saarbrucken';
 const  favCities = city1 + ', ' + city2 + ', ' + city3
 console.log(favCities);   // Output : Munich, Gujranwala, Saarbrucken
-- Another way to write this is usin template literals
+- Another way to write this is using template literals
 `${city1}, ${city2}, ${city3} `
-- There are also variosu methods for string
+- There are also various methods for string
 const name = 'Gujranwala';
+* .concat() ,  .toUpperCase(), .toLowerCase()
 * name.startswidth('G'); name.endswith('a') ; name.includes('wala')
+* let val = String(555) or (555).toString
 
+- val = 'khan'  val += M  => Khan M
+- indexOf , lastIndexOF(), charAt('2') - gives the element from 2nd place
+- .charAt(firstName.length -1) => last character , .substring(from,to)
+- slice(from,to) slice(-3) =>last 3 items, split(' ') => at what point to split 
+- .replace('khan', 'jon'), includes()
 
 * JS has dynamic typing means that data type are automatically assigned
 * automatically figure the data type and assign. which is called Type coersion. 
@@ -69,8 +76,6 @@ const name = 'Gujranwala';
 
 ------------------------------------------------------------------------------------
 
-
-
 * 2: Number (Data Structure)  
 * Basic Operators 
 - math Operators : - + * /  
@@ -80,8 +85,15 @@ const name = 'Gujranwala';
 * Operator Order Precedence: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
 
 - Unary Operator: the one that only has one side. ++ or --
-* ParseInt: convert string into a number '24' => 24  '28kills' => 28  '$90' => NaN
-* ParseFloat: convert to floating point
+* ParseInt: convert string into a number '24.30' => 24  '28kills' => 28  '$90' => NaN
+* let val = Number('24.30') . val.tofixed(2)
+* ParseFloat: convert to floating point '24.30' => 24.30
+
+
+*Math Object 
+- Math.PI , Math.E (represents the base of natural algorithm),
+- Math.round() 5.4 => 5 5.7=>6, Math.ceil(2.4) =>3, Math.floor(2.8) => 2 , Math.sqrt(4) =>2
+- Math.abs(-3) => 3 , Math.pow(8,2) => 64, Math.min(2,3,4,1,5) =>1 , Math.max , Math.random
 
  Output : 14
  let x = 5;
@@ -390,6 +402,9 @@ Topic:  Object  (Data Type)
 * collection of properties. and properties are a key:value combinations
 - use custom keys to access data rather than index
 
+
+
+
 var john = {
     firstName: 'John',
     lastName: 'Smith',
@@ -415,6 +430,42 @@ jane.firstName = 'Jane';
 jane.birthYear = 1969;
 jane['lastName'] = 'Smith';
 console.log(jane);
+
+*Date Object
+
+let val;
+const today = new Date();
+const birthday = new Date("10-9-1990 11:25:00");
+val = today.getDay();
+val = today.getFullYear();
+val = today.getHours();
+val = today.getMinutes();
+val = today.getMonth(); // starts at 0
+val = today.getTime();
+val = today.getSeconds();
+val = today.getTimezoneOffset();
+
+
+birthday.setDate(12)
+.setMonth(2)
+
+console.log(val);
+console.log(today);
+console.log(birthday);
+
+- window.location
+window.location.hostname
+window.location.port
+window.location.href 
+window.location.search
+window.location.hostname
+
+- Histroy Obejct  => gets the browser history
+window.history.go(-1)
+window.histroy.length
+
+- Navigator Object => deals witha actual browser
+window.navigator
 
 
 * Methods 

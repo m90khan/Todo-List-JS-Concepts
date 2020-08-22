@@ -16,7 +16,11 @@ Topic: Events
 -keypress - audiostart
 -focus/blur - printing
 -screenresize
-
+-mousedown => click and hold
+-mouseup => when click and let go
+-mouseenter  => when mouse hover
+-mouseleave => when leaves
+-mouseover , mouseout => when in and out of the element hovering
 
 *AddEventListener * RemoveEventListner
 

@@ -11,6 +11,23 @@ Topic: DOM
 - Query selector not only gives you nodes list and also nodes children
 - including, text, comments, spaces in the form of text and node.
 
+
+- childNodes - > return only the correctly intended items. if item not intended correcly. no display 
+- children: solve the childnodes problem - gives only the elments. no comments
+
+- list.firstChild;
+- list.firstElementChild
+- list.lastChild
+- list.lastElementChild;
+- list.childElementCount
+- listItem.parentNode
+- listItem.parentElement or parentNode
+- nextSibling nextElemntSibling - previousSibling
+
+-replaceChild
+-remove() removeChild(li[1])
+
+
   document.title = "NOt JS";
 const header = document.getElementsByTagName("h2");
 
@@ -21,7 +38,7 @@ const hero = (document.querySelector(".hero").style.backgroundColor = "salmon");
 
 
 
-*Using Html Collection elements //  get element
+*Using Html Collection elements //  get element (not an array) - use Array.from(element)
 const list = document.getElementById("list");
 console.log(list);
 
