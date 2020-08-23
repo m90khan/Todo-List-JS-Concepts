@@ -92,8 +92,7 @@ function containsPurple(arr) {
 
 
 * Function Statements and Expressions
-* Function expression : Assigning a function to a variable
-- fn expression: function of code that always produces a value
+* Function expression : Assigning a function to a variable that always produces a value
 *fn statements: things that perform actions but do not return a value like 
 - (ifesle, loops or even function declartaion)
 
@@ -150,7 +149,7 @@ function isValidPassword(password, username) {
 	return true;
 }
 
-* indexOf('username') => if result is -1 means that the value does not exist
+* indexOf('username') => if result is -1 means that the value does not exist so !== -1 means it does
 
 function isValidPassword(password, username) {
 	if (
