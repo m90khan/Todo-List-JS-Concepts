@@ -9,6 +9,65 @@ Topic: Functions
 - function whatDoYouDo(job, firstName) {}
 - return a certain computer value as output and immediaely stop the function
 
+TOPICS COVERED
+-Curry
+-Partial application
+-Pure function
+-Referential transparency
+-Compose
+-Pipe
+
+Topic: When to use functional vs OO proramming
+- machine working with same data at the same time  => functional
+- react , redux also se the concept of functional programmng
+- avoid principle of shared state
+
+
+* Functional Programming
+- seperation of concerns 
+
+Topic: Pure Function
+- always return the same output given same output
+- cannot modify anything outside itself
+
+//Side effects:
+const array = [1,2,3];
+function mutateArray(arr) {
+  arr.pop()
+}
+function mutateArray2(arr) {
+  arr.forEach(item => arr.push(1
+  ))
+}
+//The order of the function calls will matter.
+mutateArray(array)   // does not return anything but a element is removed
+mutateArray2(array)
+array
+
+// map and concat methods can fix this issue of mutation
+
+
+
+- Example
+// Amazon shopping
+const user = {
+  name: 'Kim',
+  active: true,
+  cart: [],
+  purchases: []
+}
+
+
+//Implement a cart feature:
+// 1. Add items to cart.
+// 2. Add 3% tax to item in cart
+// 3. Buy item: cart --> purchases
+// 4. Empty cart
+
+//Bonus:
+// accept refunds.
+// Track user history.
+
 
 
 * declaring a function using name
@@ -90,6 +149,10 @@ function containsPurple(arr) {
 	return false;
 }
 
+*  functions are first class citizens in js
+- it can assigned to variable and properties
+- pass functions as argument
+- return function as value
 
 * Function Statements and Expressions
 * Function expression : Assigning a function to a variable that always produces a value
@@ -332,8 +395,48 @@ const thing = {
 }
 thing.doSomething(4, 5) //20
 
-* Higher Order Functions
-* Functions that take another function as argument. return a function
+- so there are functions => function(arguments) => HOF
+
+Topic:  Higher Order Functions
+* Functions that take another function as argument 
+* or a function that returns another function
+
+const multiplyBy = (num1) => {
+  return function (num2) {
+    return num1 * num2;
+  }
+}
+
+const multiplyByTwo = multiplyBy(2);
+multiplyByTwo(4)
+
+
+const giveAccessTo = (name) =>
+  'Access Granted to ' + name;
+
+function authenticate(person) {
+  let array = [];
+  // you can add checks here for person.level
+  for (let i = 0; i < 50000; i++) {
+    array.push(i)
+  }
+  return giveAccessTo(person.name)
+}
+
+function letPerson(person, fn) { 
+	// ++ We now tell the function what data to use when we call it not when we define it + tell it what to do.
+  if (person.level === 'admin') {
+    return fn(person)
+  } else if (person.level === 'user') {
+    return fn(person)
+  }
+}
+
+function sing(person) {
+  return 'la la la my name is ' + person.name
+}
+
+letPerson({level: 'user', name: 'Tim'}, sing)
 
 - This function accepts another function as an argument
 function callThreeTimes(f) {
@@ -453,4 +556,126 @@ let fibonacci = function (n) {
 
 console.log(fibonacci(10));
 
+
+Topic: Closures vs Prototypes
+
+* Closures   (function as first class citizens + lexical scope)  - lexical scoping
+- when a function has access to parent function variables even if parent function get taken off
+- the call stack. called closure. 
+
+- garbage collecter in memory heap never cant delete it because of reference in the child function
+
+
+function apple(){
+let fruit = 'apple'
+function printFruit(){
+	console.log(fruit)
+}
+}
+
+
+function a() {
+  let grandpa = 'grandpa'
+  return function b() {
+    let father = 'father'
+    return function c() {
+      let son = 'son'
+      return `${grandpa} > ${father} > ${son}`
+    }
+  }
+}
+
+a()
+
+//closures and higher order function
+function boo(string) {
+  return function(name) {
+    return function(name2) {
+      console.log(`hi ${name2}`)
+    }
+  }
+}
+
+const boo2 = (string) => (name) => (name2) => console.log(`hi ${name2}`)
+
+boo('hi')('john')('tanya');
+
+// AHH! HOW DOES IT REMEMBER THIS 5 years from now?
+booString = boo2('sing');
+booStringName = booString('John');
+booStringNameName2 = booStringName('tanya')
+
+* Advantages of using Closures: Memory efficient , Encapsulation
+
+* function is run every time it get called , its created run, and destroy 
+function heavyDuty(item) {
+  const bigArray = new Array(7000).fill('😄')
+  console.log('created!');
+  return bigArray[item]
+}
+
+heavyDuty(699)
+heavyDuty(699)
+heavyDuty(699)
+const getHeavyDuty = heavyDuty2();
+getHeavyDuty(699)
+getHeavyDuty(699)
+getHeavyDuty(699)
+
+* solution with closures
+// but i dont want to pollute the global namespace..
+function heavyDuty2() {
+  const bigArray = new Array(7000).fill('😄')
+  console.log('created Again!')
+  return function(item) {
+    return bigArray[item]
+  }
+}
+
+- Another Example 
+const makeNuclearButton = () => {
+  let timeWithoutDestruction = 0;
+  const passTime = () => timeWithoutDestruction++;
+  const totalPeaceTime = () => timeWithoutDestruction;
+  const launch = () => {
+    timeWithoutDestruction = -1;
+    return '💥';
+  }
+
+  setInterval(passTime, 1000);
+  return {totalPeaceTime}
+}
+
+const ww3 = makeNuclearButton();
+ww3.totalPeaceTime()
+
+- example // Make it so that the initialize function can only be called once!
+let view;
+function initialize() {
+  let called = 0;
+  return function() {
+    if (called > 0) {
+      return
+    } else {
+      view = '🏔';
+      called = true;
+      console.log('view has been set!')
+    }
+
+  }
+}
+
+const start = initialize();
+start();
+start();
+start();
+console.log(view)
+
+-example 
+const array = [1,2,3,4];
+for(let i=0; i < array.length; i++) {
+  setTimeout(function(){
+    console.log('I am at index ' + i)
+  }, 3000)
+}
 */
