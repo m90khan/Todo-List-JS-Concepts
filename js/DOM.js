@@ -6,15 +6,22 @@ Topic: DOM
 - Docment object is the entry point of the DOm. it contains all the contents on a page
 
 -------------------------------------------------------------------------
-* Query selector vs rest
+* Query selector (static) vs HTML Coolection (live)
 
 - Query selector not only gives you nodes list and also nodes children
 - including, text, comments, spaces in the form of text and node.
 
+* DOM Traversing 
+- child : direct element
+- Descendant : direct and indirect
+- Parent : direct parent 
+- Ancestor: direct and indirect
 
 - childNodes - > return only the correctly intended items. if item not intended correcly. no display 
 - children: solve the childnodes problem - gives only the elments. no comments
 
+
+- list.cloneNode(true)
 - list.firstChild;
 - list.firstElementChild
 - list.lastChild

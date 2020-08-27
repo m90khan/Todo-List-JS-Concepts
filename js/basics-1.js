@@ -2,7 +2,14 @@
 
 Topic: JavaScript Basics 101   -   Part 1
 - What is Javascript
-* Javascript is a lightweight cross platform, object oreinted programming language
+* Javascript is a dynamic, weakly typed programming language which compiles at runtime. 
+- can be implemented in the browser apps or at any machine (host environment) Node.js
+
+- By Dynamic : not a pre-compiled , instead parsed and compiled on the fly 
+- code evaluated and executed at runtime 
+
+- weakly typed: data types are automatically assumed by js engine
+
 * HTML     | CSS         | JS
 * Nouns   | Adjective   | Verb
 * <p></p> | color: red | p.remove()

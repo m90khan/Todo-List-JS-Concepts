@@ -23,10 +23,11 @@ Topic: When to use functional vs OO proramming
 - avoid principle of shared state
 
 
-* Functional Programming
+Topic: Functional Programming
 - seperation of concerns 
 
-Topic: Pure Function
+*Pure Function  
+- no sideeffects to the outer
 - always return the same output given same output
 - cannot modify anything outside itself
 
@@ -47,17 +48,162 @@ array
 // map and concat methods can fix this issue of mutation
 
 
-
-- Example
-// Amazon shopping
-const user = {
-  name: 'Kim',
-  active: true,
-  cart: [],
-  purchases: []
+*  Referential transparency
+- input -> output  : no effects on the program
+- no matter the input then output should be same
+function a(num1,num2){
+	return num1 + num2
+}
+function b(num){
+	return num *2
 }
 
+b(7)  = > 14 or b(a(3,4)) => 14    : Referential Transparency
 
+
+! it is impossible to create anything without sideeffect using pure functions
+! the goal is not to minimize sideeffects
+
+* so what can be  a Perfect Function? : making code predictable
+- it should do one task
+- return Statement 
+- Pure , no shared state
+- Immutable state: Return a new copy
+- Composable
+- Predictable
+
+
+* Idempotence : always returns what it expects to do even if communicate outside the function
+- console.log()
+// Idempotence:
+function notGood() {
+  return Math.random()
+  // new Date();
+}
+
+function good() {
+  return 5
+}
+
+Math.abs(Math.abs(10))
+* Imperative vs Declarative
+- Imperative: code that tells machine what to do and how to do it   (example: for loop)
+- Declarative: what to do and what should happen    (example: [1,2,4].forEach(item => console.log(item)))
+
+
+* Immutability 
+- not changing the data - create a copy and perform function on it if needed
+const obj = {name: 'Andrei'}
+function clone(obj) {
+  return {...obj}; // this is pure
+}
+
+function updateName(obj) {
+  const obj2 = clone(obj);
+  obj2.name = 'Nana'
+  return obj2
+}
+
+const updatedObj = updateName(obj)
+console.log(obj, updatedObj)
+
+* Curring 
+- The technique of translating the evaluation of function that takes multiple arguments into a 
+- evaluation of sequence of functions that takes one argument at a time.
+
+- How to use: to create multiple utility functions (const multiplyBy5 = curriedMultiply(5)) => 
+- multiplyBy5 will remember this piece of data curriedMultiply(5) which can then be called with another argument 
+- for the funtionality (multiplyBy5(20))
+
+//Currying
+const multiply = (a, b) => a * b
+const curriedMultiply = (a) => (b) => a * b
+curriedMultiply(5)(20)
+const multiplyBy5 = curriedMultiply(5)
+multiplyBy5(20)
+
+* Partial Application 
+- partially apply a function : using less parameters 
+
+//Partial Application
+const multiply = (a, b, c) => a * b * c
+const partialMultiplyBy5 = multiply.bind(null, 5)
+partialMultiplyBy5(10, 20)
+
+* Memoization ~ Caching
+- Caching is a way to store values to use them in the later period.
+- memoiation: specific type of caching in dynamic programming 
+- remember a solution of a problem and call it when input ask is same
+//learn to cache
+function addTo80(n) {
+  return n + 80;
+}
+
+addTo80(5)
+// memoiation
+let cache = {};
+function memoizeAddTo80(n) {
+  if (n in cache) {
+    return cache[n];
+  } else {
+    console.log('long time');
+    const answer = n + 80;
+    cache[n] = answer;
+    return answer;
+  }
+}
+
+// console.log(1, memoizeAddTo80(6))
+// // console.log(cache)
+// // console.log('-----------')
+// console.log(2, memoizeAddTo80(6))
+
+// let's make that better with no global scope. This is closure in javascript so.
+function memoizeAddTo80(n) { 
+  let cache = {};
+  return function(n) {
+    if (n in cache) {
+      return cache[n];
+    } else {
+      console.log('long time');
+      const answer = n + 80;
+      cache[n] = answer;
+      return answer;
+    }
+  }
+}
+
+const memoized = memoizeAddTo80();
+console.log(1, memoized(6))
+// console.log(cache)
+// console.log('-----------')
+console.log(2, memoized(6))
+
+* Compose and Pipe
+*Compuse
+- any data that we use should be obvious => like a converyer belt in a factory
+- data => fn =>data =>fn => 
+
+fn1(fn2(fn3(50)));
+
+compose(fn1, fn2, fn3)(50) //Right to lext
+pipe(fn3, fn2, fn1)(50)//left to right
+
+- compose 
+const multiplyby3 = (num) => num*3;
+const makePositive = (num) => Math.abs;
+const compose = (f, g) => (a) => f(g(a))
+const multiplyBy3AndAbsolute = compose(multiplyby3, makePositive)
+console.log(multiplyBy3AndAbsolute(-50))    //  (-50) => f(makePositive(-50)) => multiplyby3(3*50) =>150
+*Pipe : same thing but reverse , left to right
+const pipe = (f, g) => (a) => g(f(a))
+console.log(multiplyBy3AndAbsolute(-50))    //  (-50) => g(3*50)  => makePositive(-150) =>150
+
+* Arity : number of arguments a function takes
+- in functional programming: fewer the parameters , easier to use
+
+
+- Amazon Card Example
 //Implement a cart feature:
 // 1. Add items to cart.
 // 2. Add 3% tax to item in cart
@@ -68,6 +214,56 @@ const user = {
 // accept refunds.
 // Track user history.
 
+// Amazon shopping
+const user = {
+  name: 'Kim',
+  active: true,
+  cart: [],
+  purchases: []
+}
+
+const history1 = [];
+const compose = (f, g) => (...args) => f(g(...args))
+const pipe = (f, g) => (...args) => g(f(...args))
+const purchaseItem  = (...fns) => fns.reduce(compose);
+const purchaseItem2  = (...fns) => fns.reduce(pipe);
+
+// pipe // purchaseItem2(addItemToCart, applyTaxToItems, buyItem, emptyUserCart)(user, {name: 'laptop', price: 60})  // pipe
+//Compose
+purchaseItem( emptyUserCart, buyItem, applyTaxToItems, addItemToCart)(user, {name: 'laptop', price: 50}) // compose
+function addItemToCart(user, item) {
+  history1.push(user)
+  const updatedCart = user.cart.concat(item)
+  return Object.assign({}, user, {cart: updatedCart});
+}
+
+function applyTaxToItems(user) {
+  history1.push(user)
+  const {cart} = user;
+  const taxRate = 1.3;
+  const updatedCart = cart.map(item => {
+    return {    name: item.name,     price: item.price*taxRate   }
+  })
+  return Object.assign({}, user, { cart: updatedCart });
+}
+
+function buyItem(user) {
+  history1.push(user)
+  const itemsInCart = user.cart;
+  return Object.assign({}, user, { purchases: itemsInCart });
+}
+function emptyUserCart(user) {
+  history1.push(user)
+  return Object.assign({}, user, { cart: [] });
+}
+
+function refundItem() {}
+function getUserState() {}
+function goBack() {}
+function goForward() {}
+
+*Functional Programming End HERE
+--------------------------------------------------------------------------------------------------
 
 
 * declaring a function using name
@@ -401,6 +597,12 @@ Topic:  Higher Order Functions
 * Functions that take another function as argument 
 * or a function that returns another function
 
+//HOF
+const hof = (fn) => fn(5);
+hof(function a(x){ return x})
+
+
+
 const multiplyBy = (num1) => {
   return function (num2) {
     return num1 * num2;
@@ -564,7 +766,18 @@ Topic: Closures vs Prototypes
 - the call stack. called closure. 
 
 - garbage collecter in memory heap never cant delete it because of reference in the child function
+//Closure
+const closure = function() {
+  let count = 55;
+  return function getCounter() {
+    return count;
+  }
+}
 
+const getCounter = closure()
+getCounter()
+getCounter()
+getCounter()
 
 function apple(){
 let fruit = 'apple'
@@ -678,4 +891,110 @@ for(let i=0; i < array.length; i++) {
     console.log('I am at index ' + i)
   }, 3000)
 }
+*/
+
+/*
+-----------------------------------------------------------------------------------------------------------
+Topic: OOP vs FP
+
+
+Topic: Composition vs Inheritance
+* Inheritance: its a superclass that extends smaller pieces that add or overwrite thing (class Elf extends Character)
+- the structure of code (what things are) - like defining a class for a particlar func. 
+-Problem: Tight coupling: make a small change in a class will have rippling effect in all of its subclasses
+ - but can also problems due to dependency
+- Problem: Fragile Base Class Problem: any change in the base class can also result in breaking code
+- Problem: Hierarchy: imagine having sub-class of a subclass , it will inherit all the methds which 
+- it maybe does not need known as classic gureilla banana problem
+
+User
+  Character
+      Elf
+        Baby Elf    // the baby elf inherits all teh methods from its base class which it does not need
+      Hobbit
+
+class Character {
+  constructor(name, weapon) {
+    this.name = name;
+    this.weapon = weapon;
+  }
+  attack() {
+    return 'atack with ' + this.weapon
+  }
+}
+
+class Elf extends Character { 
+  constructor(name, weapon, type) {
+    // console.log('what am i?', this); this gives an error
+    super(name, weapon) 
+    console.log('what am i?', this);
+    this.type = type;
+  }
+}
+
+class Hobbit extends Character {
+  constructor(name, weapon, color) {
+    super(name, weapon);
+    this.color = color;
+  }
+  makeFort() { // this is like extending our prototype.
+    return 'strongest fort in the world made'
+  }
+}
+
+const houseElf = new Elf('Dolby', 'cloth', 'house')
+//houseElf.makeFort() // error
+const shrek = new Hobbit('Shrek', 'club', 'green')
+shrek.makeFort()
+
+
+* composition : smaller pieces of functions combine together to create a bigger functionality
+- code structure revolves around (what it has) or what it does to data
+
+!- so if inheritance is bad : how can we fix it using composition
+-1- remove all the methods 
+- composition allows to seperate the dependency into smaller chunks functions which can combine together to form
+- something big.
+function ELf(name,weapon,type){
+  let elf ={name, weapon,type }
+return attack(elf)
+}
+
+function attack(character){
+  return Object.assign({}, character, { attackNow: ()=> {console.log('attack')}})
+}
+
+ELF = attackNow() + sleep() + eat()
+ 
+* Review: 
+* Inheritance: its a superclass that extends smaller pieces that add or overwrite thing (class Elf extends Character)
+- base class should be general so we do not overload sub-classes , and could get out of hands one sub-classes go deeper
+
+* composition : smaller pieces of functions combine together to create a bigger functionality
+- when need to make changes . add a new function and copose it together 
+
+topic: OOP vs FP  : both are paradigms
+- a programming paradigm is writing code compliant with a specific set  of rules
+*OOP - organizing code into units => oop
+- Object is a box containing information and operations that suppose to refer to same concept
+- Properties are states and operations that can happen on the satates are methods
+
+
+*FP- Avoiding side effects and writing pure functions  => FP
+- code is combination of functions, data is immutable -> programs with no side effects -> input -> output
+
+Topic : Difference FP vs OOP
+
+* FP: good for processing large application (AI data models)
+- perform many different function for which the data is fixed.
+- stateless
+- pure , no side effects : does not effect the code outside the function
+- declarative : what we want it to do
+
+* OOP: food for ,if there are multiple states , lots of characters in a game with not many operations
+-few operations on common data
+- statefull
+- this keyword 
+- sideeffects : methods manipulate sub classes
+- Imperative : How we want it do 
 */
