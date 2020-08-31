@@ -14,8 +14,8 @@ Topics
 - Brandon Eich created the first js engine
 -                                                           
 Topic:  How JS Engine Works?          
-                                -      |-> Profiler ->Compiler -> Optimized Code - >ByteCode
-- File -> Parser -> AST -> Interpreter |-> ByteCode
+                                             -      |-> Profiler ->Compiler -> Optimized Code - >ByteCode
+- File (Source Code)-> Parser -> AST -> Interpreter |-> ByteCode
 
 - First the code is parse onto the parser (to do lexical analysis) which breaks the 
 - code into tokens to identify their meaning and these tokens  are then formed into 
@@ -118,7 +118,7 @@ user(userData)
 - when a function finishes run on the call stack. and we no longer needed it . js cleared the assign 
 - and collect it in garbage
 
-- garbage collecter freeze memory n the heap and prevents it from leaking . 
+- garbage collecter freeze memory in the heap and prevents it from leaking . 
 - memory leak: when the memory reaches its maximum size in the heap
 
 - How garbarge collection work
@@ -154,7 +154,7 @@ setInterval(()=>{
 })
 
 * Call Stack and MEmory Heap are the two places where js stores and remembers memory. 
-- Javascript is a single threaded languae as it has only one call stack. so its synchronous
+- Javascript is a single threaded language as it has only one call stack. so its synchronous
 
 * Comes Asynchronous Code to rescue  - JavaScript Runtime 
 - WebAPi, Event Loop
@@ -163,7 +163,7 @@ Topic: JavaScript RunTime
 
 - CallStack, memoryHeap, WebAPi, Event Loop
 
-- Analogy of code to be music, engine is the musician that can read tis music and 
+- Analogy of code to be music, engine is the musician that can read this music and 
 - runtime is where we have the musician + give him tools to play our music
 
 * Scenario: Whenever a code related to Web APi function (setTimeout) is pushed onto the call stack, 

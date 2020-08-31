@@ -19,7 +19,7 @@ TOPICS COVERED
 
 Topic: When to use functional vs OO proramming
 - machine working with same data at the same time  => functional
-- react , redux also se the concept of functional programmng
+- react , redux also see the concept of functional programmng
 - avoid principle of shared state
 
 
@@ -64,7 +64,7 @@ b(7)  = > 14 or b(a(3,4)) => 14    : Referential Transparency
 ! it is impossible to create anything without sideeffect using pure functions
 ! the goal is not to minimize sideeffects
 
-* so what can be  a Perfect Function? : making code predictable
+* so what can be a Perfect Function? : making code predictable
 - it should do one task
 - return Statement 
 - Pure , no shared state
@@ -180,7 +180,7 @@ console.log(1, memoized(6))
 console.log(2, memoized(6))
 
 * Compose and Pipe
-*Compuse
+*Compuse  : right to left
 - any data that we use should be obvious => like a converyer belt in a factory
 - data => fn =>data =>fn => 
 
@@ -234,6 +234,7 @@ purchaseItem( emptyUserCart, buyItem, applyTaxToItems, addItemToCart)(user, {nam
 function addItemToCart(user, item) {
   history1.push(user)
   const updatedCart = user.cart.concat(item)
+  
   return Object.assign({}, user, {cart: updatedCart});
 }
 
@@ -469,7 +470,7 @@ isPangram('The five boxing wizards jump quick') //false
 
 - Version using indexOf
 function isPangram(sentence) {
-	let lowerCased = sentence.toLowerCase();
+  let lowerCased = sentence.toLowerCase().split(" ").join("");
 	for (let char of 'abcdefghijklmnopqrstuvwxyz') {
 		if (lowerCased.indexOf(char) === -1) {
 			return false;
@@ -820,7 +821,7 @@ booStringNameName2 = booStringName('tanya')
 
 * Advantages of using Closures: Memory efficient , Encapsulation
 
-* function is run every time it get called , its created run, and destroy 
+* function is run every time it get called , its created,  run, and destroy 
 function heavyDuty(item) {
   const bigArray = new Array(7000).fill('😄')
   console.log('created!');
@@ -902,7 +903,7 @@ Topic: Composition vs Inheritance
 * Inheritance: its a superclass that extends smaller pieces that add or overwrite thing (class Elf extends Character)
 - the structure of code (what things are) - like defining a class for a particlar func. 
 -Problem: Tight coupling: make a small change in a class will have rippling effect in all of its subclasses
- - but can also problems due to dependency
+ - but can also cause problems due to dependency
 - Problem: Fragile Base Class Problem: any change in the base class can also result in breaking code
 - Problem: Hierarchy: imagine having sub-class of a subclass , it will inherit all the methds which 
 - it maybe does not need known as classic gureilla banana problem
@@ -971,13 +972,13 @@ ELF = attackNow() + sleep() + eat()
 - base class should be general so we do not overload sub-classes , and could get out of hands one sub-classes go deeper
 
 * composition : smaller pieces of functions combine together to create a bigger functionality
-- when need to make changes . add a new function and copose it together 
+- when need to make changes . add a new function and compose it together 
 
 topic: OOP vs FP  : both are paradigms
 - a programming paradigm is writing code compliant with a specific set  of rules
 *OOP - organizing code into units => oop
 - Object is a box containing information and operations that suppose to refer to same concept
-- Properties are states and operations that can happen on the satates are methods
+- Properties are states and operations that can happen on the states are methods
 
 
 *FP- Avoiding side effects and writing pure functions  => FP

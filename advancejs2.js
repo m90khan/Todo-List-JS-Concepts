@@ -20,7 +20,8 @@ Topic: execution Context
 * Creation Phase
 - In that creation phase, it creates a global object (in browser case, window object)
 - and a this keyword , also a memory is allocated to declared functions and variables along with scope chain 
--scope chain where hoisting is performed. the global execution context needs to know the scope of stored declaration what is available where
+-scope chain where hoisting is performed. the global execution context needs to know the scope 
+-of stored declaration what is available where
 - JS engine takes our function, declaration, variables and stored them on the global objects memory
 
 * Execution Phase : When our code starts running
@@ -63,10 +64,10 @@ first()
 Global execution context
 ------------------------------------------------------------------------------------
 Topic: Lexical Environment : default is global execution context
--  related to the words of a language
+- related to the words of a language
 - execution context tell us information that at compile time, which lexical environment is running , its scope
 
-- lexical scope (available data + variables where the function was defined) determines or 
+- lexical scope (available data + variables where the function was defined) determines our 
 - available varibales. not where the function is called(dynamic scope) 
 
 
@@ -166,7 +167,7 @@ Topic: Scope Chain    [[Scopes]]
 - scope tells us what we can access and what we cannot
 
 * Remember
-- lexical scope (available data + variables where the function was defined) determines or 
+- lexical scope (available data + variables where the function was defined) determines our 
 - available varibales. not where the function is called(dynamic scope) = scope
 
 - every variable environment has access to its parent, if it does not find value then looks in the parent, its not, 

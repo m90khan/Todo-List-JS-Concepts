@@ -149,8 +149,8 @@ console.log(kelvin); //Output :if fahrenheit = 0 then celcius -17.77 kelvin = 25
 - < less than / <= less than or equal to
 - > greater than  / >= greater than or equal to
 
-- Equality operators
-- === strict equality : check equality + value type ,  !== Non-equalty : value not true
+- Equality operators  : strict equality
+- ===  : check equality  value and type ,  !== Non-equalty : value and type not true
 
 - Number.isNaN : The Number.isNaN function is a standard JavaScript function 
 - that returns true only if the argument it is given is NaN
@@ -178,8 +178,9 @@ console.log('your are a adult: enter');
   console.log('your are too old : enter');
 }
  
-* Leaked global: when a variable is assign to a value but never defined so its always best practice
-- to declare the variable
+* Leaked global: when a variable is assign to a value but never declared results in 
+- js engine automatically declare the variable in the global
+- so its always best practice to declare the variable
 
 ------------------------------------------------------------------------------------
 
@@ -406,7 +407,7 @@ console.log(tips, totalBill);
 
 
 Topic:  Object  (Data Type)
-* collection of properties. and properties are a key:value combinations
+* collection of properties and methods. Properties are a key:value combinations
 - use custom keys to access data rather than index
 
 

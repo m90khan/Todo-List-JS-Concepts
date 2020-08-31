@@ -4,7 +4,7 @@ Topic: Events
  - based on the trigger, an event will occour
 * click, resize, keypress, scroll etc
 - The eecution stack has to be empty for event to happen
-- All events reside in the message queue wait for action to happen. 
+- All events reside in the callback queue wait for action to happen. 
 
 
 
