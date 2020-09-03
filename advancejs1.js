@@ -196,6 +196,10 @@ First
 Third
 Second
 
+* JOB QUEUE
+- there is another queue name as JOB QUEUE (Microtask Queue) besides callback queue , has high priority than callback queue
+- promise uses job queue
+- event loop is going to check job queue first , if empty then proceeds to callback queue
 Topic: Node.js  
 - is a js runtime built on v8 engine 
 
