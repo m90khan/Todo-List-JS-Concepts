@@ -104,6 +104,8 @@ user(userData)
 -Wasm is designed as a portable compilation target for programming languages, enabling deployment 
 -on the web for client and server applications.
 
+JS Runtime also comes with other things
+
 * Call Stack
 - Define the current state and location of the code
 

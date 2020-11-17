@@ -6,7 +6,7 @@ Topic: JavaScript Basics 101   -   Part 1
 - can be implemented in the browser apps or at any machine (host environment) Node.js
 
 - By Dynamic : not a pre-compiled , instead parsed and compiled on the fly 
-- code evaluated and executed at runtime 
+- code evaluated and executed at runtime  
 
 - weakly typed: data types are automatically assumed by js engine
 
@@ -66,6 +66,13 @@ const name = 'Gujranwala';
 - slice(from,to) slice(-3) =>last 3 items, split(' ') => at what point to split 
 - .replace('khan', 'jon'), includes()
 
+String escapes
+
+\n - newline 
+\' - single quote
+\" - double quote
+\\ - backslash
+
 * JS has dynamic typing means that data type are automatically assigned
 * automatically figure the data type and assign. which is called Type coersion. 
 * Two Types of coersion: implicit & explicit
@@ -83,11 +90,13 @@ const name = 'Gujranwala';
 
 ------------------------------------------------------------------------------------
 
-* 2: Number (Data Structure)  
+* 2: Number (Data Structure)    
+// PEMDAS (Parentheses Exponents Multiplication and Division (from left to right) Addition and Subtraction (from left to right))
 * Basic Operators 
 - math Operators : - + * /  
 - Type Operator: typeof
 - More Operators: *= += -= /=
+- pOWER EXPONENT 2**3  = 8 
 * Some operators work from RTL and some LTR
 * Operator Order Precedence: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
 
