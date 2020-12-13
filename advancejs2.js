@@ -249,7 +249,9 @@ Topic: call,apply,bind    -> methods borrowing
 - to manipulate this keyword
 - All function have these three properties
 
-- call and apply when borrowing methods from an object
+- bind : create new function to prepare for future execution. (this, argument )
+
+- call and apply when borrowing methods from an object . immediately execute
 - while bind let us store the value and used it later at time with a certain this keyword
 
 const wizard = {

@@ -477,6 +477,28 @@ window.location.href
 window.location.search
 window.location.hostname
 
+- get the location of the user
+window.navigator.geolocation.getCurrentPosition(success ar, err arg)
+
+
+  window.navigator.geolocation.getCurrentPosition(
+    (position) => console.log(position),
+    (err) => console.log(err)
+  );
+
+  GeolocationPosition {coords: GeolocationCoordinates, timestamp: 1606395741489}
+coords: GeolocationCoordinates
+accuracy: 40
+altitude: null
+altitudeAccuracy: null
+heading: null
+latitude: 32.231685
+longitude: 74.1518359
+speed: null
+__proto__: GeolocationCoordinates
+timestamp: 1606395741489
+__proto__: GeolocationPosition
+
 - Histroy Obejct  => gets the browser history
 window.history.go(-1)
 window.histroy.length
