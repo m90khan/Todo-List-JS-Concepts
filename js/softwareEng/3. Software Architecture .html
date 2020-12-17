@@ -1,0 +1,218 @@
+<h4><strong>Architecture Introduction </strong></h4>
+<p>
+  Architecture is the highest level of design within a system. It is the link between idea
+  and reality. It takes our idea for the system, and creates a plan for it. We focus on
+  only the largest areas of the system here.  We want to break it down from idea, into
+  concrete areas to build.
+</p>
+<p>
+  In software, bad architecture is something that CAN'T be fixed with good programming. It
+  is a critical step within the development process. Once we decide on an architecture, we
+  have to understand that it <strong>can't be changed.</strong>
+</p>
+<p>
+  This is the same in the real world. Imagine trying to change the foundation of the
+  skyscraper once it's built. Same could be said about a bridge. Imagine trying to switch
+  it from a suspension to a draw bridge after it's built. These changes would be
+  impossible. The only way to implement them would be to destroy the product and start
+  over.
+</p>
+<h4><strong>Architecture Overview</strong></h4>
+<p>
+  Software architecture is all about breaking up larger systems and ideas, into smaller
+  focused systems. Our first step is to take the requirements, and build an initial
+  architecture. We take this broad set of ideas and guidelines, and have to organize it
+  into functioning areas.
+</p>
+<p>
+  Each of these areas are then put through the same process to break them up into smaller
+  and smaller pieces. Eventually we will have a blueprint for the entire system designed.
+</p>
+<p>
+  Good architecture is hard. It takes a lot of resources to develop correctly. However,
+  this upfront cost is almost always recovered from how maintainable the software is. This
+  will reduce the amount of bugs, and the time to fix those bugs.
+</p>
+<p>
+  Good architecture also helps for faster development and better resource utilization. If
+  we break up the project into small pieces, we will understand how to have multiple
+  developers work at the same time on it.
+</p>
+<p>
+  Another benefit of breaking the project up is the idea of buy vs build. If we have for
+  example 4 development teams. Through architecture design we have broke the project up
+  into 5 different large projects. We go through each of these projects and learn that 1
+  of them has already been solved before and is for sale on the market. We can then
+  allocate the 4 teams to the other ones, and just purchase the already created software,
+  saving us time and money.
+</p>
+<h4><strong>Architecture Patterns</strong></h4>
+<h3><strong>Pipe-and-Filter</strong></h3>
+<p>
+  The pipe and filter pattern is a good pattern to use to process data through multiple
+  different layers. The key to this pattern is the ability of each step to input, and
+  output the same type of data. So if you send a set of numbers in one side, you will get
+  a set of numbers out the other side.
+</p>
+<p>
+  This key constraint makes it so you can mix and match the logic in any order and still
+  have the program work. These different filters can also be set up across multiple
+  servers.
+</p>
+<p>
+  There is definitely an added complexity with this pattern. Setting it up can be tricky
+  to get correct. Also, if the data is lost at any step, the entire process is broken.
+</p>
+<h4>When to use this pattern</h4>
+Use this pattern when:
+<ul>
+  <li>
+    <p>
+      The processing required by an application can easily be broken down into a set of
+      independent steps.
+    </p>
+  </li>
+  <li>
+    <p>
+      The processing steps performed by an application have different scalability
+      requirements.
+    </p>
+    <blockquote>
+      <p>
+        It's possible to group filters that should scale together in the same process. For
+        more information, see the
+        <a href="compute-resource-consolidation" data-linktype="relative-path"
+          >Compute Resource Consolidation pattern</a
+        >.
+      </p>
+    </blockquote>
+  </li>
+  <li>
+    <p>
+      Flexibility is required to allow reordering of the processing steps performed by an
+      application, or the capability to add and remove steps.
+    </p>
+  </li>
+  <li>
+    <p>
+      The system can benefit from distributing the processing for steps across different
+      servers.
+    </p>
+  </li>
+  <li>
+    <p>
+      A reliable solution is required that minimizes the effects of failure in a step
+      while data is being processed.
+    </p>
+  </li>
+</ul>
+<p>
+  More Information: <a
+    href="https://docs.microsoft.com/en-us/azure/architecture/patterns/pipes-and-filters"
+    rel="noopener noreferrer"
+    target="_blank"
+    >https://docs.microsoft.com/en-us/azure/architecture/patterns/pipes-and-filters</a
+  >
+</p>
+<p><strong>Client-Server</strong></p>
+<p>
+  The client-server pattern is one that is quite common today. Every single website and
+  most phone apps use this architecture. With this pattern there are two parts to the
+  software, the client, and the server.
+</p>
+<p>
+  Let's take an iPhone app for example. What you download in the app store is what is
+  known as the "client software". This is the version of the app built to talk to the
+  server. It doesn't store any of the server's data locally. It is just setup to make the
+  appropriate server calls when necessary.
+</p>
+<p>
+  The other part of this is of course the "server software". This is the software that is
+  installed onto a server to receive the requests from the client. The server holds and
+  updates the data. It also processes requests, and sends the data to the clients. Servers
+  have to be tuned correctly, as there can be a near unlimited number of clients
+  requesting information.
+</p>
+<p>
+  This is a great pattern for accessing and updating a single repository of information.
+  It's great of keeping track of accounts, and regulating which data is given
+  automatically.
+</p>
+<p>
+  More Information: <a
+    href="https://en.wikipedia.org/wiki/Client%E2%80%93server_model"
+    rel="noopener noreferrer"
+    target="_blank"
+    >https://en.wikipedia.org/wiki/Client%E2%80%93server_model</a
+  >
+</p>
+<p><strong>Master-Slave</strong></p>
+<p>
+  The master slave pattern consists of two elements, the master, and the slave. The master
+  is in full control of all slaves associated with it. This is good for a multitude of
+  different applications.
+</p>
+<p>
+  One such application is with duplicate backup servers. You don't want these backup
+  servers all acting independently of one another. This will create a bunch of different
+  states of memory. Each server will have a different set of data. Instead, you have a
+  master server, which is the main server of operation.
+</p>
+<p>
+  The master server is the one dealing with all of the normal day to day operations. Then
+  at some point during the day, it sends a signal out to all of the slave servers to tell
+  them to begin their backup operation. The slave servers all start up, copy the data from
+  the master server, and then go back to sleep.
+</p>
+<p>
+  This pattern is also used with "multi-threading". Here we break up an operation into a
+  bunch of small parts. Each of those parts are given a thread and fed through the CPU. If
+  a CPU has multiple cores, it can process multiple threads at the same time.
+</p>
+<p>
+  We typically have a master thread which controls the creation and tracking of all slave
+  threads. The slaves do exactly what the master thread has told them. The master thread
+  keeps reassessing the situation both creating and deleting slave threads. Once the
+  operation is finished, the master thread ceases as well.
+</p>
+<p>
+  More Information: <a
+    href="http://www.openloop.com/softwareEngineering/patterns/designPattern/dPattern_MasterSlave.htm"
+    rel="noopener noreferrer"
+    target="_blank"
+    >http://www.openloop.com/softwareEngineering/patterns/designPattern/dPattern_MasterSlave.htm</a
+  >
+</p>
+<p><strong>Layered Pattern</strong></p>
+<p>
+  The layered pattern consists of divvying up program into layers of technology. These
+  layers only communicate with adjacent layers. Let's say we have an architecture with 9
+  layers. In this model, 8 would only be able to communicate with 9 and 7, 4 with 3 and 5,
+  etc.
+</p>
+<p>
+  This simplifies the communication channels, and helps to better distinguish the areas of
+  the program. Overall, this helps to make the program more maintainable. The downside to
+  this, is that there can be of added complexity in some areas. For example, if you need
+  to send a message from layer 1 to layer 9. There will have to be a function in each
+  layer to pass that message along.
+</p>
+<p>
+  More Information: <a
+    href="https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html"
+    rel="noopener noreferrer"
+    target="_blank"
+    >https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html</a
+  >
+</p>
+<h4><strong>Architecture Conclusion</strong></h4>
+<p>
+  There is no one size fits all plan when it comes to software development. The process
+  must be taken on a case to case basis. Us, as engineers, seek to find the best pattern
+  or set of patterns which solve the problem.
+</p>
+<p>
+  This process is an iterative one. We come up with an idea, get feedback, rework it, and
+  repeat the process many times. After a series of iterations, we have the architecture
+  that will work best for the problem.
+</p>
