@@ -250,7 +250,7 @@ switch (true) {
 ------------------------------------------------------------------------------------
 
 * Truthy and Falsy values and equality operators
-- falsy values: values that return durin if else conditions.  false. undefined, null, 0, '', NaN
+- falsy values: values that return during if else conditions.  false. undefined, null, 0, '', NaN
 - truthy values: NOT falsy values
 
 let height;
@@ -323,9 +323,9 @@ Topic :  Arrays
 * Array also have methods : concat, includes(T/F), indexOf, join, reverse, slice, splice, sort
 - splice => remove/replace elements. array.splice(start, howManyToDelete, [Insert Anything])
 - names.splice(1,0, 'kevin')  => ['John','kevin', 'Mark', 'Jane'];
--indexOf : return the index of argument that we pass in the array
+- indexOf : return the index of argument that we pass in the array
 
- const names = ['John', 'Mark', 'Jane'];
+const names = ['John', 'Mark', 'Jane'];
 const years = new Array(1990, 1969, 1948);
 
 console.log(names[2]);
@@ -418,9 +418,6 @@ console.log(tips, totalBill);
 Topic:  Object  (Data Type)
 * collection of properties and methods. Properties are a key:value combinations
 - use custom keys to access data rather than index
-
-
-
 
 var john = {
     firstName: 'John',

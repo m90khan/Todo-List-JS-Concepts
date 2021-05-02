@@ -9,21 +9,17 @@ Topics
 
 Topic: Static vs Dynamically Typed
  - number, string, null, undefined, symbol, boolean ,object
-
  - undefined : absence of definition
- let a;
+let a;
 console.log(a);
 
  - null : absence of value
-
  - Primitive Type: data that only represents a single value (actual value stored in memory)
-
  - Non-Primitive Type:  contains a reference to memory (does not contain the actua value)
 ------------------------------------------------------------------------------------
  
 Topic: Pass by reference vs Pass by value
 - By Value: Primitive: we have to remove the data from memory to update with a new one
-
 - By Reference : Non-Primitive: Object : as it just contains reference to the memory.
 - any change in an objectA results in changge in copied objectA named objectB when 
 
@@ -46,7 +42,6 @@ https://dorey.github.io/JavaScript-Equality-Table/
 
 - There are many ways to add static typing to javascript
 - flow (built-in react), reason, elm and typescript(add functionality on top of javascript)
-
 
  ------------------------------------------------------------------------------------
 Topic: Arrays, Functions and Objects

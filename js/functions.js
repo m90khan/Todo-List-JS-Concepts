@@ -5,7 +5,7 @@
 Topic: Functions 
 * write reuseable code 
 * sets of statements combined together to form a functionality inside a block
--  Function declaration
+- Function declaration
 - function whatDoYouDo(job, firstName) {}
 - return a certain computer value as output and immediaely stop the function
 
@@ -19,11 +19,10 @@ TOPICS COVERED
 
 Topic: When to use functional vs OO proramming
 - machine working with same data at the same time  => functional
-- react , redux also see the concept of functional programmng
+- react , redux also see the concept of functional programming
 - avoid principle of shared state
 
-
-Topic: Functional Programming
+Topic: Functional Programming 
 - seperation of concerns 
 
 *Pure Function  

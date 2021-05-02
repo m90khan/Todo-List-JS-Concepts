@@ -17,11 +17,11 @@ Topic: execution Context
 *Global Execution and Hoisting
 - JS is a single threaded language. meaning the code will run line by line
 - Before code even runs, the JS engine automatically creates global exxecuton context
-* Creation Phase
+* Creation Phase 
 - In that creation phase, it creates a global object (in browser case, window object)
 - and a this keyword , also a memory is allocated to declared functions and variables along with scope chain 
--scope chain where hoisting is performed. the global execution context needs to know the scope 
--of stored declaration what is available where
+- scope chain where hoisting is performed. the global execution context needs to know the scope 
+- of stored declaration what is available where
 - JS engine takes our function, declaration, variables and stored them on the global objects memory
 
 * Execution Phase : When our code starts running
@@ -31,7 +31,7 @@ Topic: execution Context
 - In the creation phase of Global execution context as our function declaration already stored. 
 - so it won't error out because the function is already available in the memory before the execution phase
 - variable bindings are hosited but not the values while function declaration are completely hoisted
-
+     
 - note: function declaration gets hoisted not the function expression
 
 let a = 2;
@@ -171,7 +171,7 @@ Topic: Scope Chain    [[Scopes]]
 - available varibales. not where the function is called(dynamic scope) = scope
 
 - every variable environment has access to its parent, if it does not find value then looks in the parent, its not, 
-- further up till global execution context.  results in scope chain
+- further up till global execution context.  results in scope chain    
 
 let printValue = 10; // global
 function first(){

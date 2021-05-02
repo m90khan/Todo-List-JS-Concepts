@@ -25,11 +25,11 @@ Topic:  How JS Engine Works?
 - and then there is a Profiler / Monitor which keep track of own code (runtime, types) 
 - that is being run in the interpreter. so if a section of code runs more than once, the interpreter
 - passes that code to Compiler (JIT compiler aka Turbo fan in v8)and optimize the code and 
-- replaces the it with the non-optimized code
+- replaces it with the non-optimized code
 
 * There are two ways that our code can be converted to binary aka machine readable code
 
-* Interpreter : translate and read files line by line on the fly
+* Interpreter: translate and read files line by line on the fly
 * Compiler: Translate and converts the code into machine code ahead of time
 
 * Pros and Cons of Interpreter vs Compiler
@@ -138,7 +138,6 @@ function garbage(){
 
 * How memory leaks happens?
 - by writing code that has no ending point or defining variables that contain huge amount of data and in use all the time
-
 - the example below runs a infinite loop , memory gets leaked and GB nevers comes into effect because arr 
 - was in use all the time
 

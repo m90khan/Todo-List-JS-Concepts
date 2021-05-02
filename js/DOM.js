@@ -137,7 +137,7 @@ allLis.forEach((li, i) => {
 
 const h1 = document.querySelector('h1');
 
-- style property only contains INLINE styles...
+-  style property only contains INLINE styles...
 -  Even though we gave the h1 a purple color, we still get:
 h1.style.color; //"" 
 -  Same with any property we did not set inline:
