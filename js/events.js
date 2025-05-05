@@ -39,11 +39,14 @@ btn.addEventListener('mouseover', function() {
 	btn.style.left = `${width}px`;
 	btn.style.top = `${height}px`;
 });
-
-btn.addEventListener('click', function() {
+function clickedButton () {
 	btn.innerText = 'YOU GOT ME!';
 	document.body.style.backgroundColor = 'green';
-});
+}
+btn.addEventListener('click', , clickedButton);
+
+btn.removeEventListener('click',clickedButton );
+
 
 -------------------------------------------------------------------------
 * Multiple Events
@@ -58,7 +61,7 @@ const container = document.querySelector('#boxes');
 for (let color of colors) {
 	const box = document.createElement('div');
 	box.style.backgroundColor = color;
-	box.classList.add('box');
+	box.classList.add(`box box-${i}`);
 	container.appendChild(box);
 	box.addEventListener('click', changeColor);
 }

@@ -165,7 +165,7 @@ console.log(kelvin); //Output :if fahrenheit = 0 then celcius -17.77 kelvin = 25
 - that returns true only if the argument it is given is NaN
 
 
-! Problem: to calculate is adult or not based on input value
+! Problem: to calculate if adult or not based on input value
 ! Output : is child - if =< 7 , teen - if > 7 && < 18 , adult - if >= 18 && <65
 
 let age = prompt('Enter your age');
@@ -195,8 +195,7 @@ console.log('your are a adult: enter');
 
 * Ternary Operator 
 - write if else statement all in one line if(condition is true) ? do this : else do this;
-
-
+ 
 - if else statement
 (if (age >= 18) {
     var drink = 'beer';
@@ -212,7 +211,7 @@ let drink = age >= 18 ? 'beer' : 'juice'; console.log(drink);
 ------------------------------------------------------------------------------------
 
 * Switch Statements
-- more like a HUGE if else staement 
+- more like a HUGE if else statement 
 - break : stops the program once condition is true
 - default: if none is true then default output will be given 
 - can also have nested cases  (case 'teacher':  case 'instructor':)  
@@ -712,6 +711,8 @@ for (let i = 0; i < words1.length; i++) {
 	- Access index i of both arrays
 	console.log(`${words1[i]}${words2[i]}`);
 }
+
+// Other loops : forEach, map, filter, findIndex
 ------------------------------------------------------------------------------------
 * For Of  loop on Objects 
 - we cannot loop over the entire object . only loop through keys or values
